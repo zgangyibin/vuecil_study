@@ -3,12 +3,12 @@ import Vue from 'vue'
 // 导入路由
 import VueRouter from 'vue-router'
 
-// import Find from "../views/Find.vue"
-// import My from "../views/My.vue"
+import Find from "../views/Find.vue"
+import My from "../views/My.vue"
 
-// import Ranking from "../views/second/Ranking.vue"
-// import Recommend from "../views/second/Recommend.vue"
-// import SongList from "../views/second/SongList.vue"
+import Ranking from "../views/second/Ranking.vue"
+import Recommend from "../views/second/Recommend.vue"
+import SongList from "../views/second/SongList.vue"
 
 // 在vue中使用vue插件都需要调用Vue.use()
 Vue.use(VueRouter)
@@ -17,26 +17,25 @@ Vue.use(VueRouter)
 const routes = [
   {
     path:"/find",
-    //路由按需加载
-    component:()=>import("../views/Find.vue"),
+    component:Find,
     children:[
       {
         path:"ranking",
-        component:()=>import("../views/second/Ranking.vue"),
+        component:Ranking,
       },
       {
         path:"recommend",
-        component:()=>import("../views/second/Recommend.vue"),
+        component:Recommend,
       },
       {
         path:"songlist",
-        component:()=>import("../views/second/SongList.vue"),
+        component:SongList,
       },
     ],
   },
   {
     path:"/my",
-    component:()=>import("../views/My.vue"),
+    component:My,
   },
 
 ]
