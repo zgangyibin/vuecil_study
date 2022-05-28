@@ -48,7 +48,8 @@ const routes = [
 // 创建路由对象
 const router = new VueRouter({
   //路由规则
-  routes
+  routes,
+  mode:"history"   //打包上线后需要后台的支持，否则找的是文件夹，默认模式为hash
 })
 
 // 暴露路由对象
