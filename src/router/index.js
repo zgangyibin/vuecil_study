@@ -17,14 +17,17 @@ const routes = [
   {
     path:"/home",    //路由地址
     // redirect:"/find",
+    name:"home",//给路由起名字
     component:Home
   },
   {
     path:"/part",    //路由地址
+    name:"part",//给路由起名字
     component:Part
   },
   {
     path:"/find",    //路由地址
+    name:"find",//给路由起名字
     component:Find
   },
   // {
@@ -33,10 +36,12 @@ const routes = [
   // },
   {
     path:"/detail",    //路由地址
+    name:"detail",//给路由起名字
     component:Detail
   },
   {
     path:"/mydetail/:users",    //路由地址   :说明是动态变量
+    name:"mydetail",//给路由起名字
     component:MyDetail
   },
   {
