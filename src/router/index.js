@@ -2,12 +2,13 @@
 import Vue from 'vue'
 // 导入路由
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Part from '../views/Part.vue'
+
 import Find from "../views/Find.vue"
-import Detail from "../views/Detail.vue"
-import MyDetail from "../views/MyDetail.vue"
-import NotFound from "../views/NotFound.vue"
+import My from "../views/My.vue"
+
+import Ranking from "../views/second/Ranking.vue"
+import Recommend from "../views/second/Recommend.vue"
+import SongList from "../views/second/SongList.vue"
 
 // 在vue中使用vue插件都需要调用Vue.use()
 Vue.use(VueRouter)
@@ -15,39 +16,28 @@ Vue.use(VueRouter)
 // 创建路由规则 一一对应关系
 const routes = [
   {
-    path:"/home",    //路由地址
-    // redirect:"/find",
-    name:"home",//给路由起名字
-    component:Home
+    path:"/find",
+    component:Find,
+    children:[
+      {
+        path:"ranking",
+        component:Ranking,
+      },
+      {
+        path:"recommend",
+        component:Recommend,
+      },
+      {
+        path:"songlist",
+        component:SongList,
+      },
+    ],
   },
   {
-    path:"/part",    //路由地址
-    name:"part",//给路由起名字
-    component:Part
+    path:"/my",
+    component:My,
   },
-  {
-    path:"/find",    //路由地址
-    name:"find",//给路由起名字
-    component:Find
-  },
-  // {
-  //   path:"*",    //匹配所有路由
-  //   redirect:'/',//重定向
-  // },
-  {
-    path:"/detail",    //路由地址
-    name:"detail",//给路由起名字
-    component:Detail
-  },
-  {
-    path:"/mydetail/:users",    //路由地址   :说明是动态变量
-    name:"mydetail",//给路由起名字
-    component:MyDetail
-  },
-  {
-    path:"*",    //路由地址
-    component:NotFound
-  },
+
 ]
 
 // 创建路由对象
